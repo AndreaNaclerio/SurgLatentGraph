@@ -86,7 +86,7 @@ train_dataloader = dict(
         type='CocoDatasetWithDS',
         data_root=data_root,
         metainfo=metainfo,
-        ann_file='train/annotation_coco.json',
+        ann_file='train.annotation_ds_coco.json',
         data_prefix=dict(img='frames/'),
         pipeline=train_pipeline,
     ),
@@ -98,7 +98,7 @@ train_eval_dataloader['dataset'].update(dict(
         type='CocoDatasetWithDS',
         data_root=data_root,
         metainfo=metainfo,
-        ann_file='train/annotation_coco.json',
+        ann_file='train.annotation_ds_coco.json',
         data_prefix=dict(img='frames/'),
         pipeline=eval_pipeline,
     )
@@ -110,7 +110,7 @@ val_dataloader = dict(
         type='CocoDatasetWithDS',
         data_root=data_root,
         metainfo=metainfo,
-        ann_file='val/annotation_coco.json',
+        ann_file='val.annotation_ds_coco.json',
         data_prefix=dict(img='frames/'),
         pipeline=eval_pipeline))
 
@@ -120,7 +120,7 @@ test_dataloader = dict(
         type='CocoDatasetWithDS',
         data_root=data_root,
         metainfo=metainfo,
-        ann_file='test/annotation_coco.json',
+        ann_file='test.annotation_ds_coco.json',
         data_prefix=dict(img='frames/'),
         pipeline=eval_pipeline))
 

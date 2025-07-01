@@ -5,20 +5,20 @@ _base_ = ['lg_base_box.py']
 # dataset
 train_dataloader = dict(
     dataset=dict(
-        ann_file='annotations/annotation_coco.json',
-        data_prefix=dict(img='train_seg'),
+        ann_file='annotations/train.seg.annotation_coco.json',
+        data_prefix=dict(img='frames/'),
     )
 )
 val_dataloader = dict(
     dataset=dict(
-        ann_file='annotations/annotation_coco.json',
-        data_prefix=dict(img='val_seg'),
+        ann_file='annotations/val.seg.annotation_coco.json',
+        data_prefix=dict(img='frames/'),
     )
 )
 test_dataloader = dict(
     dataset=dict(
-        ann_file='annotations/annotation_coco.json',
-        data_prefix=dict(img='test_seg'),
+        ann_file='annotations/test.seg.annotation_coco.json',
+        data_prefix=dict(img='frames/'),
     )
 )
 
@@ -27,7 +27,7 @@ val_evaluator = dict(
     type='CocoMetricRGD',
     prefix='sages',
     data_root=_base_.data_root,
-    data_prefix='val_seg',
+    data_prefix='frames/',
     ann_file=os.path.join(_base_.data_root, 'val_seg/annotation_coco.json'),
     metric=['bbox', 'segm'],
     additional_metrics=['reconstruction'],
@@ -39,7 +39,7 @@ test_evaluator = dict(
     type='CocoMetricRGD',
     prefix='sages',
     data_root=_base_.data_root,
-    data_prefix='test_seg',
+    data_prefix='frames/',
     ann_file=os.path.join(_base_.data_root, 'test_seg/annotation_coco.json'),
     #data_prefix='test',
     #ann_file=os.path.join(_base_.data_root, 'test/annotation_coco.json'),
@@ -80,4 +80,4 @@ param_scheduler = [
 train_cfg = dict(
     type='EpochBasedTrainLoop',
     max_epochs=60,
-    val_interval=3)
+    val_interval=1)
