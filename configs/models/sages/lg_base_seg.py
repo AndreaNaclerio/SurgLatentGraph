@@ -5,19 +5,19 @@ _base_ = ['lg_base_box.py']
 # dataset
 train_dataloader = dict(
     dataset=dict(
-        ann_file='train_seg/annotation_coco.json',
+        ann_file='annotations/annotation_coco.json',
         data_prefix=dict(img='train_seg'),
     )
 )
 val_dataloader = dict(
     dataset=dict(
-        ann_file='val_seg/annotation_coco.json',
+        ann_file='annotations/annotation_coco.json',
         data_prefix=dict(img='val_seg'),
     )
 )
 test_dataloader = dict(
     dataset=dict(
-        ann_file='test_seg/annotation_coco.json',
+        ann_file='annotations/annotation_coco.json',
         data_prefix=dict(img='test_seg'),
     )
 )

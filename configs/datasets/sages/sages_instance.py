@@ -2,7 +2,7 @@ import os
 import copy
 
 _base_ = os.path.expandvars('$MMDETECTION/configs/_base_/datasets/coco_instance.py')
-custom_imports = dict(imports=['datasets.custom_loading'], allow_failed_imports=False)
+custom_imports = dict(imports=['dataset.custom_loading'], allow_failed_imports=False)
 
 # Modify dataset related settings
 
@@ -87,7 +87,7 @@ train_dataloader = dict(
         data_root=data_root,
         metainfo=metainfo,
         ann_file='train/annotation_coco.json',
-        data_prefix=dict(img='train/'),
+        data_prefix=dict(img='frames/'),
         pipeline=train_pipeline,
     ),
     batch_sampler=dict(drop_last=True),
@@ -99,7 +99,7 @@ train_eval_dataloader['dataset'].update(dict(
         data_root=data_root,
         metainfo=metainfo,
         ann_file='train/annotation_coco.json',
-        data_prefix=dict(img='train/'),
+        data_prefix=dict(img='frames/'),
         pipeline=eval_pipeline,
     )
 )
@@ -111,7 +111,7 @@ val_dataloader = dict(
         data_root=data_root,
         metainfo=metainfo,
         ann_file='val/annotation_coco.json',
-        data_prefix=dict(img='val/'),
+        data_prefix=dict(img='frames/'),
         pipeline=eval_pipeline))
 
 test_dataloader = dict(
@@ -121,7 +121,7 @@ test_dataloader = dict(
         data_root=data_root,
         metainfo=metainfo,
         ann_file='test/annotation_coco.json',
-        data_prefix=dict(img='test/'),
+        data_prefix=dict(img='frames/'),
         pipeline=eval_pipeline))
 
 # metric
