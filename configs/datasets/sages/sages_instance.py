@@ -86,7 +86,7 @@ train_dataloader = dict(
         type='CocoDatasetWithDS',
         data_root=data_root,
         metainfo=metainfo,
-        ann_file='train.annotation_ds_coco.json',
+        ann_file='annotations/train.annotation_ds_coco.json',
         data_prefix=dict(img='frames/'),
         pipeline=train_pipeline,
     ),
@@ -98,7 +98,7 @@ train_eval_dataloader['dataset'].update(dict(
         type='CocoDatasetWithDS',
         data_root=data_root,
         metainfo=metainfo,
-        ann_file='train.annotation_ds_coco.json',
+        ann_file='annotations/train.annotation_ds_coco.json',
         data_prefix=dict(img='frames/'),
         pipeline=eval_pipeline,
     )
@@ -110,7 +110,7 @@ val_dataloader = dict(
         type='CocoDatasetWithDS',
         data_root=data_root,
         metainfo=metainfo,
-        ann_file='val.annotation_ds_coco.json',
+        ann_file='annotations/val.annotation_ds_coco.json',
         data_prefix=dict(img='frames/'),
         pipeline=eval_pipeline))
 
@@ -120,11 +120,11 @@ test_dataloader = dict(
         type='CocoDatasetWithDS',
         data_root=data_root,
         metainfo=metainfo,
-        ann_file='test.annotation_ds_coco.json',
+        ann_file='annotations/test.annotation_ds_coco.json',
         data_prefix=dict(img='frames/'),
         pipeline=eval_pipeline))
 
 # metric
-val_evaluator = dict(ann_file=os.path.join(data_root, 'val/annotation_coco.json'), format_only=False,)
-test_evaluator = dict(ann_file=os.path.join(data_root, 'test/annotation_coco.json'), format_only=False,)
+val_evaluator = dict(ann_file=os.path.join(data_root, 'annotations/val.annotation_ds_coco.json'), format_only=False,)
+test_evaluator = dict(ann_file=os.path.join(data_root, 'annotations/test.annotation_ds_coco.json'), format_only=False,)
 evaluation = dict(metric=['bbox', 'segm'])
