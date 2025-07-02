@@ -52,7 +52,7 @@ test_evaluator = dict(
 )
 
 default_hooks = dict(
-    checkpoint=dict(save_best='sages/segm_mAP'),
+    checkpoint=dict(save_best='sages/segm_mAP_50'),
 )
 
 # training schedule
